@@ -3,11 +3,13 @@
 
 <head>
     <title>Volunteering Form</title>
+    <link href="volunteer_styles.css" rel="stylesheet"/>
 </head>
 
 <body>
-    <h1>Volunteering Form for Resolute</h1>
-    <form action="submit_volunteer.php" method="post">
+    
+    <form action="/submit_volunteer" method="post">
+        <h1>Volunteer for Resolute</h1>
         <label for="full_name">Full Name:</label>
         <input type="text" id="full_name" name="full_name" required><br><br>
 
@@ -29,9 +31,8 @@
         <label for="interests">Interests/Reasons for Volunteering:</label>
         <textarea id="interests" name="interests" rows="4" required></textarea><br><br>
 
-        <input type="submit" value="Submit">
+        <button id="submit" type="submit" value="Submit">Submit</button>
     </form>
 </body>
 
 </html>
-https://github.com/aggavni4/Resolute.git
