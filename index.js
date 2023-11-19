@@ -75,6 +75,64 @@ app.post('/submit_volunteer', async (req, res) => {
     }
 });
 
+
+//Signup vaala form *************************************************************************************
+
+
+const signupSchema = new mongoose.Schema({
+    first_name: String,
+    last_name: String,
+    username: String,
+    email: String,
+    password: String,
+    confirmpassword: String,
+});
+
+// Create a model
+const signup = mongoose.model('login', signupSchema);
+
+
+
+
+
+// Handle form submission
+app.post('/signup', async (req, res) => {
+    const {
+        first_name,
+        last_name,
+        username,
+        email,
+        password,
+        confirmpassword
+    } = req.body;
+
+    
+    // Check if password equals confirm password
+    if (password !== confirmpassword) {
+        return res.status(400).send("Password and confirm password do not match.");
+    }
+
+    const newUser = new signup({
+        first_name,
+        last_name,
+        username,
+        email,
+        password,
+        confirmpassword
+    });
+
+    try {
+        await newUser.save();
+        res.send('Form submitted successfully!');
+    } catch (error) {
+        console.error('Error saving to the database:', error);
+        res.status(500).send('Internal Server Error');
+    }
+});
+
+
+
+
 // Start the server
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
