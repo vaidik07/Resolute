@@ -1,0 +1,344 @@
+body{
+    /* background-image: url(https://media.istockphoto.com/id/183060490/photo/group-with-hands-together.jpg?s=612x612&w=0&k=20&c=kvA_rkY54ZUi2uPbqN9-XZin613DtqC_ac21r-xA40c=); */
+    background-size: cover;
+    height: 100%;
+    font-family: 'Gothic A1', sans-serif;
+    /* overflow: hidden; */
+    /* background-color:#D38B5D; */
+    color: white;
+    animation: fade-in 2s ease-in;
+}
+@keyframes fade-in{
+    from {
+        opacity:0;
+    }
+
+    to {
+        opacity:1;
+    }
+}
+
+                        /* NAVBAR */
+.navbar{
+    font-size: 1.4rem;
+    padding: 0.8rem 2rem;
+    font-family: 'Comfortaa', cursive;
+    background-color: rgba(34, 92, 17, 0.75);
+    opacity: 0.95;
+    /* color: white; */
+}
+
+.changing-back{
+    background-color: rgba(255, 255, 255, 0.3);
+    transition: background-color 0.5s ease-in-out;
+}
+.navbar-brand{
+    font-size: 2.5rem;
+    font-weight:bolder;
+    font-family: 'Open Sans', sans-serif;
+}
+.nav-item{
+    /* padding: 1rem; */
+    font-family: 'Equinox';
+    padding-left: 4rem;
+}
+.nav-link{
+    position: relative;
+    padding: 6px 0;
+}
+.nav-link:before{
+    content:"";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: #034316;
+    transition: all 0.4s ease;
+}
+.nav-link:hover:before{
+    width: 100%;
+}
+.name{
+    margin-right: 6.5rem;
+}
+
+
+
+                            /* SECTION 1 */
+.section1{
+    height:35rem;
+    background-color: rgba(255, 255, 255, 0.452);
+    background-image: url(images/hands_pic.jpg);
+    opacity: 0.6;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: left;
+}
+.section1>h1{
+    padding: 80px 2rem;
+    font-size: 3rem;
+    width: 60%;
+    line-height: 1.5em;
+}
+
+                            /* SECTION2  */
+.section2{
+    text-align: center;
+    background-color: #D38B5D;
+    height: 6rem;
+    padding-top: 25px;
+    font-family: 'Homemade Apple', cursive;
+}
+
+
+                            /* SECTION 3 */
+.section3{
+    height:30rem;
+    background-image: url(images/help.jpg);
+    background-size: cover;
+    opacity: 0.6;
+}
+
+.section3-text{
+    text-align: left;
+    margin-left: 70%;
+    padding: 10rem 7rem 0 0;
+    line-height: 2rem;
+    font-size: 1.15rem;
+    font-family: 'Carrois Gothic', sans-serif;
+}
+.section4{
+    height: 40rem;
+    background-color: #D38B5D;
+    padding: 10% 20%;
+    
+}
+.container{
+    justify-content: space-between;
+    gap: 30px;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+.table1{
+    color: black;
+}
+.section5{
+    background-color: rgba(34, 92, 17, 0.75);
+    height: 15rem;
+    padding: 5% ;
+}
+.container2{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 10%;
+}
+.container2 h2{
+    font-size: 3rem;
+    font-weight:bolder;
+    font-family: 'Open Sans', sans-serif;
+}
+table{
+    width: 100%;
+    height: 100%;
+}
+table,th,td{
+    padding-right: 30px;
+    padding-top: 10px;
+}
+
+.brands{
+    text-align: center;
+}
+.brands .fa-brands{
+    margin: 10px;
+    font-size: 1.5rem;
+    color: white;
+}
+
+/*
+.title{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    padding-top: 8%;
+    background-image: url(https://media.istockphoto.com/id/183060490/photo/group-with-hands-together.jpg?s=612x612&w=0&k=20&c=kvA_rkY54ZUi2uPbqN9-XZin613DtqC_ac21r-xA40c=);
+}
+h1{
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    line-height: 6rem;
+}
+.sub-heading{
+    font-size: 1.8rem;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.btn{
+    margin-top: 2rem;
+    font-size: 2rem;
+
+}
+.btn:hover{
+    transform: scale(1.05);
+    transition: transform 0.15s ease-in;
+}
+h2{
+    font-size:4rem;
+    text-align: center;
+    margin-bottom: 100px;
+    font-weight: 900;
+}
+h3{
+    font-size: 2rem;
+}
+.container{
+    margin-top: 150px;
+    margin-bottom: 100px;
+    padding: 4rem;
+}
+.flex-container{
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 0 auto;
+}
+.flex-item{
+    flex: 1;
+    text-align:center;
+    padding: 2rem;
+}
+.flex-item>p{
+    margin: 0 auto;
+}
+p{
+    width: 350px;
+    font-size: 1.2rem;
+}
+
+.replace{
+    height: 950px;
+    background-color: rgba(13, 15, 32, 0.82) ;
+    padding-bottom: 800px;
+    width: 100%;
+}
+.replace h3{
+    font-family: 'Great Vibes Regular';
+    font-size: 7rem;
+    margin-left: 18%;
+    padding: 200px 0;
+    margin-bottom: 60px;
+}
+img{
+    transform: scale(0.5);
+}
+.googleDrive{
+    transform: scale(0.4);
+}
+.flex-container1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    margin: 0 auto;
+    height: 50%;
+}
+.flex-item1{
+    flex: 1;
+    justify-content: center;
+    width: 2rem;
+}
+.flex-item1:hover{
+    transform: scale(0.6);
+    transition: transform 0.5s ease-in-out;
+}
+.googleDrive:hover{
+    transform: scale(0.45);
+}
+
+
+.last-sync{
+    background-color: rgba(255, 255, 255, 0.4) ;
+    height: 500px;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    width: 100%;
+}
+.last-sync h2{
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(7, 5, 36);
+    margin-left: 25%;
+    text-align: left;
+    padding-top: 5.5%;
+    margin-bottom: 0;
+}
+.last-sync button{
+    margin-top: 2%;
+    font-size: 2.5rem;
+    margin-top: 3%;
+    margin-left: 53%;
+}
+.last-sync button:hover{
+    background-color: rgba(7, 5, 36,0.85);
+}
+
+.footer{
+    height: 700px;
+}
+
+.flex-container2{
+    display: flex;
+    width: 50%;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15%;
+    margin: 0 auto;
+}
+.flex-container2 h2{
+    font-size: 4rem;
+    font-weight:bolder;
+    font-family: 'Open Sans', sans-serif;
+}
+table{
+    transform: scale(2);
+    width: 100%;
+    height: 100%;
+    font-size: 170%;
+}
+table,th,td{
+    padding-right: 30px;
+    padding-top: 10px;
+}
+hr{
+    width: 40%;
+    margin: 0 auto;
+}
+.flex-container3{
+    display: flex;
+    justify-content: space-between;
+}
+.copyright{
+    height: 100px;
+    text-align: right;
+    padding: 3% 5%;
+}
+.copyright a{
+    color: white;
+    text-decoration: none;
+    padding: 0 30px;
+}
+.copyright a:hover{
+    color: rgb(113, 141, 242);
+}
+i{
+    transform: scale(2);
+}
+i:hover{
+    transform: scale(2.4);
+}
+*/

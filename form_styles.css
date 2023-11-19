@@ -1,0 +1,63 @@
+body{
+    font-family: 'Gothic A1', sans-serif;
+    background-color: rgba(34, 92, 17, 0.75);
+    background-image: url("images/volunteer_bg.avif") ;
+    background-size: cover;
+}
+h1{
+    padding: 0 0 30px 0;
+}
+label{
+    display: inline-block;
+    width: 180px;
+    text-align: left;
+}
+form{
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 50px auto;
+    background-color: #b7764e;
+    width: 40%;
+    padding: 40px;
+    height: 100%;
+    border-radius: 5%;
+}
+input{
+    border-radius: 10px 10px;
+    width: 200px;
+    border-style: none;
+    height: 30px;
+    padding: 5px;
+    margin: 10px;
+    font-size: 1.02rem;
+}
+textarea{
+    vertical-align: top;
+    border-radius: 10px 10px;
+    width: 200px;
+    border-style: none;
+    height: 80px;
+    padding: 5px;
+    margin: 10px;
+    resize: vertical;
+    font-size: 1.02rem;
+}
+input,textarea:focus{
+    outline: none;
+}
+button{
+    border-radius: 10px 10px;
+    border-style: none;
+    width: 100px;
+    height: 40px;
+    margin: 30px 0 20px 0;
+    font-size: 1.1rem;
+}
+button:hover{
+    background-color:  rgba(34, 92, 17, 0.5);
+    transition: 0.3s;
+    font-weight: bold;
+}
+a{
+    color: rgb(139, 2, 2);
+}
