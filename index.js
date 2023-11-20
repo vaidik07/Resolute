@@ -1,6 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const session = require('express-session');
+
+
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -10,6 +13,8 @@ app.use(express.static("public"));
 
 // Middleware to parse request bodies
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(session({ secret: 'vaidik', resave: true, saveUninitialized: true }));
 
 // Serve the HTML form
 app.get('/', (req, res) => {
@@ -38,7 +43,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/test', {
     useUnifiedTopology: true
 });
 
-// Define a schema
+// Define a schema for volunteering form
 const userSchema = new mongoose.Schema({
     name: String,
     email: String,
@@ -50,11 +55,11 @@ const userSchema = new mongoose.Schema({
 
 });
 
-// Create a model
+// Create a model for volunteer
 const User = mongoose.model('User', userSchema);
 
 
-// Handle form submission
+// Handle form submission for volunteer
 app.post('/submit_volunteer', async (req, res) => {
     const newUser = new User({
         name: req.body.full_name,
@@ -76,7 +81,7 @@ app.post('/submit_volunteer', async (req, res) => {
 });
 
 
-//Signup vaala form *************************************************************************************
+//Signup  form *****************************************************************
 
 
 const signupSchema = new mongoose.Schema({
@@ -88,7 +93,7 @@ const signupSchema = new mongoose.Schema({
     confirmpassword: String,
 });
 
-// Create a model
+// Create a model for signup 
 const signup = mongoose.model('login', signupSchema);
 
 
@@ -126,6 +131,32 @@ app.post('/signup', async (req, res) => {
         res.send('Form submitted successfully!');
     } catch (error) {
         console.error('Error saving to the database:', error);
+        res.status(500).send('Internal Server Error');
+    }
+});
+
+//Login Setup ******************************************************************************************
+
+app.post('/login', async (req, res) => {
+    const { username, password } = req.body;
+
+    try {
+        const user = await signup.findOne({ username });
+
+        // Check if the user exists
+        if (user) {
+            // Compare the provided password with the password stored in the database (plain text)
+            if (password === user.password) {
+                req.session.userId = user._id; // Store user ID in the session
+                res.send('Login successful!');
+            } else {
+                res.status(401).send('Invalid credentials');
+            }
+        } else {
+            res.status(401).send('Invalid credentials');
+        }
+    } catch (error) {
+        console.error('Error logging in:', error);
         res.status(500).send('Internal Server Error');
     }
 });
