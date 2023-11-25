@@ -27,6 +27,10 @@ app.get('/login', (req, res) => {
     res.render("login.ejs");
 });
 
+app.get('/community', (req, res) => {
+    res.render("community.ejs");
+});
+
 app.get('/signup', (req, res) => {
     res.render("signup.ejs");
 });
@@ -120,6 +124,7 @@ app.post('/login', async (req, res) => {
         console.error('Error logging in:', error);
         res.status(500).send('Internal Server Error');
     }
+    
 });
 
 
@@ -159,6 +164,49 @@ app.post('/signup', async (req, res) => {
         res.status(500).send('Internal Server Error');
     }
 });
+
+
+
+
+//Comunity tab *************************************************************************************************************
+
+
+// Define a Mongoose schema
+const blogpostSchema = new mongoose.Schema({
+    title: String,
+    content: String,
+});
+
+// Create a Mongoose model
+const Post = mongoose.model('blogpost', blogpostSchema);
+
+app.use(express.static('public'));
+app.use(bodyParser.json());
+
+// Get all blog posts
+app.get('/api/posts', async (req, res) => {
+    try {
+        const posts = await Post.find();
+        res.json(posts);
+    } catch (error) {
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
+
+// Create a new blog post
+app.post('/api/posts', async (req, res) => {
+    const { title, content } = req.body;
+
+    try {
+        const newPost = await Post.create({ title, content });
+        res.json(newPost);
+    } catch (error) {
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
+
+
+
 
 
 
