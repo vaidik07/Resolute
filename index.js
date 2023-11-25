@@ -165,7 +165,39 @@ app.post('/signup', async (req, res) => {
     }
 });
 
+// Define a Mongoose schema
+const blogpostSchema = new mongoose.Schema({
+    title: String,
+    content: String,
+});
 
+// Create a Mongoose model
+const Post = mongoose.model('blogpost', blogpostSchema);
+
+app.use(express.static('public'));
+app.use(bodyParser.json());
+
+// Get all blog posts
+app.get('/api/posts', async (req, res) => {
+    try {
+        const posts = await Post.find();
+        res.json(posts);
+    } catch (error) {
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
+
+// Create a new blog post
+app.post('/api/posts', async (req, res) => {
+    const { title, content } = req.body;
+
+    try {
+        const newPost = await Post.create({ title, content });
+        res.json(newPost);
+    } catch (error) {
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
 
 
 // Start the server
