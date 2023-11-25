@@ -33,7 +33,7 @@ app.get('/volunteering', (req, res) => {
 });
 
 // Connect to MongoDB
-mongoose.connect('mongodb://127.0.0.1:27017/test', {
+mongoose.connect('mongodb+srv://admin:admin@cluster0.vayxzgs.mongodb.net/?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
