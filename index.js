@@ -124,6 +124,7 @@ app.post('/login', async (req, res) => {
         console.error('Error logging in:', error);
         res.status(500).send('Internal Server Error');
     }
+    
 });
 
 
