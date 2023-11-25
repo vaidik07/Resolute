@@ -1,6 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const session = require('express-session');
+
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -10,6 +12,11 @@ app.use(express.static("public"));
 
 // Middleware to parse request bodies
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(session({
+    secret: 'your-secret-key',
+    resave: true,
+    saveUninitialized: true
+}));
 
 // Serve the HTML form
 app.get('/', (req, res) => {
@@ -91,6 +98,29 @@ const signupSchema = new mongoose.Schema({
 // Create a model
 const signup = mongoose.model('login', signupSchema);
 
+app.post('/login', async (req, res) => {
+    const { username, password } = req.body;
+
+    try {
+        const user = await signup.findOne({ username });
+
+        // Check if the user exists
+        if (user) {
+            // Compare the provided password with the password stored in the database (plain text)
+            if (password === user.password) {
+                req.session.userId = user._id; // No error should occur here now
+                res.send('Login successful!');
+            } else {
+                res.status(401).send('Invalid credentials');
+            }
+        } else {
+            res.status(401).send('Invalid credentials');
+        }
+    } catch (error) {
+        console.error('Error logging in:', error);
+        res.status(500).send('Internal Server Error');
+    }
+});
 
 
 
