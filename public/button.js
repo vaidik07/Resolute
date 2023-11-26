@@ -1,4 +1,5 @@
 // Open volunteer form using button in section4
+
 function volunteer_click_button() {
   console.log("helllo");
     window.location.href="/volunteering";
@@ -17,6 +18,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
       posts.forEach(post => {
           const postElement = document.createElement('div');
+          postElement.classList.add('blog-post'); // Add your desired class name here
           postElement.innerHTML = `
               <h2>${post.title}</h2>
               <p>${post.content}</p>
