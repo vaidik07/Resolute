@@ -44,10 +44,7 @@ app.get('/volunteering', (req, res) => {
 });
 
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://admin:admin@cluster0.vayxzgs.mongodb.net/?retryWrites=true&w=majority', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-});
+mongoose.connect('mongodb+srv://admin:admin@cluster0.vayxzgs.mongodb.net/?retryWrites=true&w=majority');
 
 // Define a schema
 const userSchema = new mongoose.Schema({
