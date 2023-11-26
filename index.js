@@ -162,12 +162,6 @@ app.post('/signup', async (req, res) => {
     }
 });
 
-
-
-
-//Comunity tab *************************************************************************************************************
-
-
 // Define a Mongoose schema
 const blogpostSchema = new mongoose.Schema({
     title: String,
@@ -201,11 +195,6 @@ app.post('/api/posts', async (req, res) => {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 });
-
-
-
-
-
 
 
 // Start the server
