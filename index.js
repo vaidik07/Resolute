@@ -198,6 +198,6 @@ app.post('/api/posts', async (req, res) => {
 
 
 // Start the server
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-});
+app.listen(3000, '0.0.0.0', () => {
+    console.log('Server is running on http://0.0.0.0:3000');
+  });
